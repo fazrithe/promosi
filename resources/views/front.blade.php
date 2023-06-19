@@ -28,7 +28,24 @@ https://templatemo.com/tm-528-elegance
     <link rel="stylesheet" href="{{ asset("themes/css/templatemo-style.css") }}">
 
     <link rel="stylesheet" href="{{ asset("themes/css/responsive.css") }}">
+    {{-- <style>
+        #slideshow {
+            margin: 80px auto;
+            position: relative;
+            width: 240px;
+            height: 240px;
+            padding: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+        }
 
+        #slideshow > div {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+        }
+    </style> --}}
     </head>
 
     <body>
@@ -41,21 +58,34 @@ https://templatemo.com/tm-528-elegance
                 <span></span>
             </div>
         </div>
-            <video autoplay muted loop id="myVideo">
-                        <source src="{{ asset("themes/images/Kaiten Tsumakirikun.mp4") }}" type="video/mp4">
-            </video>
-
+        <div id="slideshow">
+            @foreach($slide as $value)
+                @foreach(json_decode($value->file) as $video)
+                <div>
+                    <video autoplay muted loop id="myVideo">
+                                <source src="{{ asset('files/video/'.$video.'') }}" type="video/mp4">
+                    </video>
+                </div>
+                @endforeach
+            @endforeach
+        </div>
 
 
 
         <header id="header">
             <div class="container-fluid">
                 <div class="navbar">
-
-                    <a href="#" id="logo" title="Elegance by TemplateMo">
-                         <img src="{{ asset("themes/images/TL logo1.png") }}" alt="slimfit">
-                    </a>
-
+                    <div id="slideshowCompany">
+                        @foreach($slide as $value)
+                            @foreach(json_decode($value->company_logo_file) as $logo)
+                            <div>
+                                <a href="#" id="logo" title="Elegance by TemplateMo">
+                                    <img src="{{ asset('files/company_logo/'.$logo.'') }}" width="200px" alt="slimfit">
+                                </a>
+                            </div>
+                            @endforeach
+                        @endforeach
+                    </div>
                     <!--<div class="navigation-row">
                         <nav id="navigation">
                             <button type="button" class="navbar-toggle"> <i class="fa fa-bars"></i> </button>
@@ -80,19 +110,28 @@ https://templatemo.com/tm-528-elegance
 
         <div id="fullpage" class="fullpage-default">
 
-            <div class="section animated-row" data-section="slide01">
-                <div class="section-inner">
-                     </br></br></br> </br></br></br>   </br></br></br>   </br></br></br>   </br></br></br>     </br>
+            <div class="" >
+                <div class="">
+                    </br> </br></br></br>   </br></br></br>   </br></br></br>   </br></br></br>     </br>
                     <div class="welcome-box">
-                         <div style="text-align:left">
-
-                                    <!--<a href="PriceList3.jpg"><img src="DaftarHarga.png"></a>-->
+                                 <!--<a href="PriceList3.jpg"><img src="DaftarHarga.png"></a>-->
                                     <!--<button class="btn" type="submit" name="Submit" style="width:20%">Daftar Harga</button>-->
 
                         <!--<span class="welcome-first animate" data-animate="fadeInUp">Hello....</span>
                         <h1 class="welcome-title animate" data-animate="fadeInUp">Libbey</h1>-->
 
-                        <div style="text-align:right"><font face="DINPro-Regular"> <img src="{{ asset("themes/images/bigsale1.png") }}"><h2>Produk Kami</h2></font></div>
+                        <div style="text-align:right"><font face="DINPro-Regular">
+                            <div id="slideshowPromo">
+                                @foreach($slide as $value)
+                                    @foreach(json_decode($value->promo_logo_file) as $promo)
+                                    <div>
+                                        <img src="{{ asset('files/promo_logo/'.$promo.'') }}" width="200px" alt="slimfit">
+                                        <h2>Produk Kami</h2></font>
+                                    </div>
+                                    @endforeach
+                                @endforeach
+                            </div>
+                        </div>
                         <!--<p class="animate" data-animate="fadeInUp">This is a clean and modern HTML5 template with a video background. You can use this layout for your profile page. Please spread a word about templatemo to your friends. Thank you.</p>-->
                         <!--<div class="scroll-down next-section animate data-animate="fadeInUp""><img src="images/mouse-scroll.png" alt=""><span>Scroll Down</span></div></div>-->
                     </div>
@@ -515,7 +554,42 @@ https://templatemo.com/tm-528-elegance
     <script src="{{ asset("themes/js/form.js") }}"></script>
 
     <script src="{{ asset("themes/js/custom.js") }}"></script>
+    <script>
+        $("#slideshow > div:gt(0)").hide();
 
+        setInterval(function() {
+        $('#slideshow > div:first')
+            .fadeOut(1000)
+            .next()
+            .fadeIn(1000)
+            .end()
+            .appendTo('#slideshow');
+        }, 3000);
+    </script>
+    <script>
+        $("#slideshowCompany > div:gt(0)").hide();
+
+        setInterval(function() {
+        $('#slideshowCompany > div:first')
+            .fadeOut(1000)
+            .next()
+            .fadeIn(1000)
+            .end()
+            .appendTo('#slideshowCompany');
+        }, 3000);
+    </script>
+    <script>
+       $("#slideshowPromo > div:gt(0)").hide();
+
+        setInterval(function() {
+        $('#slideshowPromo > div:first')
+            .fadeOut(1000)
+            .next()
+            .fadeIn(1000)
+            .end()
+            .appendTo('#slideshowPromo');
+        }, 3000);
+    </script>
 
   </body>
 </html>

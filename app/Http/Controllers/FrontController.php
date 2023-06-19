@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Slides;
 
 class FrontController extends Controller
 {
@@ -14,6 +15,8 @@ class FrontController extends Controller
      */
     public function index()
     {
-        return view('front');
+        $slide = Slides::orderby('created_at','desc')->get();
+
+        return view('front', compact('slide'));
     }
 }
