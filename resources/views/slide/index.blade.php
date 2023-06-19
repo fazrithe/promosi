@@ -5,7 +5,7 @@
 <div class="container">
     <div class="card">
         <div class="card-body" style="background-color: white">
-    <form action="{{ route('store.slide') }}" method="POST">
+    <form action="{{ route('store.slide') }}" method="POST" enctype="multipart/form-data">
         @csrf
 
         @if ($errors->any())
@@ -33,21 +33,17 @@
             <tr>
                 <td>
                     <div class="control-group after-add-more" style="background-color: white">
-                        <div class="form-group">
-                            <label>Nama</label>
-                            <input type="text" name="name[]" class="form-control">
-                        </div>
                         <div class="form-group mt-2">
                             <label>File</label>
-                            <input type="file" name="file[]" class="form-control">
+                            <input type="file" name="file[]" class="form-control" accept="video/mp4,video/x-m4v,video/*">
                         </div>
                         <div class="form-group mt-2">
                             <label>Logo Perusahaan</label>
-                            <input type="file" name="company_logo_file[]" class="form-control">
+                            <input type="file" name="company_logo_file[]" class="form-control" accept="image/png, image/gif, image/jpeg">
                         </div>
                         <div class="form-group mt-2">
                             <label>Logo Promo</label>
-                            <input type="file" name="company_promo_file[]" class="form-control">
+                            <input type="file" name="company_promo_file[]" class="form-control" accept="image/png, image/gif, image/jpeg">
                         </div>
                         <div class="form-group mt-2">
                             <label>Keterangan</label>
@@ -76,21 +72,17 @@
         $("#dynamicTable").append('<tr>'
             +'<td><hr>'
                 +'<div class="control-group after-add-more" style="background-color: white">'
-                        +'<div class="form-group">'
-                            +'<label>Nama</label>'
-                            +'<input type="text" name="name[]" class="form-control">'
-                        +'</div>'
                         +'<div class="form-group mt-2">'
                             +'<label>File</label>'
-                            +'<input type="file" name="file[]" class="form-control">'
+                            +'<input type="file" name="file[]" class="form-control" accept="video/mp4,video/x-m4v,video/*">'
                         +'</div>'
                         +'<div class="form-group mt-2">'
                             +'<label>Logo Perusahaan</label>'
-                            +'<input type="file" name="company_logo_file[]" class="form-control">'
+                            +'<input type="file" name="company_logo_file[]" class="form-control" accept="image/png, image/gif, image/jpeg">'
                         +'</div>'
                         +'<div class="form-group mt-2">'
                             +'<label>Logo Promo</label>'
-                            +'<input type="file" name="company_promo_file[]" class="form-control">'
+                            +'<input type="file" name="company_promo_file[]" class="form-control" accept="image/png, image/gif, image/jpeg">'
                         +'</div>'
                         +'<div class="form-group mt-2">'
                             +'<label>Keterangan</label>'
