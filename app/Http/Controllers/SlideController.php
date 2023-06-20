@@ -35,13 +35,13 @@ class SlideController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'file'              => 'required',
+            'video_file'              => 'required',
             'company_logo_file' => 'required',
         ]);
         $videoFiles = [];
-        if($request->hasfile('file'))
+        if($request->hasfile('video_file'))
          {
-            foreach($request->file('file') as $file)
+            foreach($request->file('video_file') as $file)
             {
                 $file_name_ori  = $file->getClientOriginalName();
                 $file_name = time().rand(1,100).'.'.$file->extension();
