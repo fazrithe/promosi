@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Slides;
+use Illuminate\Support\Facades\Storage;
 
 class SlideController extends Controller
 {
@@ -40,15 +41,19 @@ class SlideController extends Controller
         ]);
         $videoFiles = [];
 
-
+        if($request->hasFile('video_file'))
+         {
             foreach($request->file('video_file') as $file)
             {
                 $file_name_ori  = $file->getClientOriginalName();
                 $file_name = time().rand(1,100).'.'.$file->extension();
-                $file->move(public_path('files/video_promo'), $file_name);
+                // $file->move(public_path('files/video_promo'), $file_name);
+                $filePath = 'files/video_promo/' . $file_name;
+                Storage::disk('public')->put($filePath, file_get_contents($file));
+                // $url = Storage::disk('public')->url($filePath);
                 $videoFiles[] = $file_name;
             }
-
+         }
 
          $companyLogoFiles = [];
          if($request->hasFile('company_logo_file'))
