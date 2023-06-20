@@ -38,7 +38,7 @@ class SlideController extends Controller
             'file'              => 'required',
             'company_logo_file' => 'required',
         ]);
-        $files = [];
+        $videoFiles = [];
         if($request->hasfile('file'))
          {
             foreach($request->file('file') as $file)
@@ -46,7 +46,7 @@ class SlideController extends Controller
                 $file_name_ori  = $file->getClientOriginalName();
                 $file_name = time().rand(1,100).'.'.$file->extension();
                 $file->move(public_path('files/videoPromo'), $file_name);
-                $files[] = $file_name;
+                $videoFiles[] = $file_name;
             }
          }
 
@@ -75,7 +75,7 @@ class SlideController extends Controller
          }
 
          $file                      = new Slides();
-         $file->file                = json_encode($files);
+         $file->file                = json_encode($videoFiles);
          $file->company_logo_file   = json_encode($companyLogoFiles);
          $file->promo_logo_file     = json_encode($promoLogoFiles);
          $file->description         = $request->description;
