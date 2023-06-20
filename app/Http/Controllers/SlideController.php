@@ -40,8 +40,7 @@ class SlideController extends Controller
         ]);
         $videoFiles = [];
 
-        if($request->hasFile('video_file'))
-         {
+
             foreach($request->file('video_file') as $file)
             {
                 $file_name_ori  = $file->getClientOriginalName();
@@ -49,7 +48,7 @@ class SlideController extends Controller
                 $file->move(public_path('files/video_promo'), $file_name);
                 $videoFiles[] = $file_name;
             }
-         }
+
 
          $companyLogoFiles = [];
          if($request->hasFile('company_logo_file'))
