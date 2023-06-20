@@ -43,13 +43,13 @@ class SlideController extends Controller
 
         if($request->hasFile('video_file'))
          {
-            foreach($request->file('video_file') as $file)
+            foreach($request->file('video_file') as $videoFile)
             {
-                $file_name_ori  = $file->getClientOriginalName();
-                $file_name = time().rand(1,100).'.'.$file->extension();
+                $file_name_ori  = $videoFile->getClientOriginalName();
+                $file_name = time().rand(1,100).'.'.$videoFile->extension();
                 // $file->move(public_path('files/video_promo'), $file_name);
                 $filePath = 'files/video_promo/' . $file_name;
-                Storage::disk('public')->put($filePath, file_get_contents($file));
+                Storage::disk('public')->put($filePath, file_get_contents($videoFile));
                 // $url = Storage::disk('public')->url($filePath);
                 $videoFiles[] = $file_name;
             }
