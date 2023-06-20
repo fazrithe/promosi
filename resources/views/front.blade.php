@@ -63,7 +63,7 @@ https://templatemo.com/tm-528-elegance
                 @foreach(json_decode($value->file) as $video)
                 <div>
                     <video autoplay muted loop id="myVideo">
-                                <source src="{{ asset('files/video/'.$video.'') }}" type="video/mp4">
+                                <source src="{{ asset('public/files/videoPromo/'.$video.'') }}" type="video/mp4">
                     </video>
                 </div>
                 @endforeach
@@ -80,7 +80,7 @@ https://templatemo.com/tm-528-elegance
                             @foreach(json_decode($value->company_logo_file) as $logo)
                             <div>
                                 <a href="#" id="logo" title="Elegance by TemplateMo">
-                                    <img src="{{ asset('files/company_logo/'.$logo.'') }}" width="200px" alt="slimfit">
+                                    <img src="{{ asset('public/files/company_logo/'.$logo.'') }}" width="200px" alt="slimfit">
                                 </a>
                             </div>
                             @endforeach
@@ -125,7 +125,7 @@ https://templatemo.com/tm-528-elegance
                                 @foreach($slide as $value)
                                     @foreach(json_decode($value->promo_logo_file) as $promo)
                                     <div>
-                                        <img src="{{ asset('files/promo_logo/'.$promo.'') }}" width="200px" alt="slimfit">
+                                        <img src="{{ asset('public/files/promo_logo/'.$promo.'') }}" width="200px" alt="slimfit">
                                         <h2>Produk Kami</h2></font>
                                     </div>
                                     @endforeach

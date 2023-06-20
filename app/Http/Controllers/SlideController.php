@@ -45,7 +45,7 @@ class SlideController extends Controller
             {
                 $file_name_ori  = $file->getClientOriginalName();
                 $file_name = time().rand(1,100).'.'.$file->extension();
-                $file->move(public_path('files/video'), $file_name);
+                $file->move(public_path('files/videoPromo'), $file_name);
                 $files[] = $file_name;
             }
          }
