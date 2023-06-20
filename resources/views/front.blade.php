@@ -63,7 +63,7 @@ https://templatemo.com/tm-528-elegance
                 @foreach(json_decode($value->file) as $video)
                 <div>
                     <video autoplay muted loop id="myVideo">
-                                <source src="{{ asset('public/files/videoPromo/'.$video.'') }}" type="video/mp4">
+                                <source src="{{ asset('public/files/video_promo/'.$video.'') }}" type="video/mp4">
                     </video>
                 </div>
                 @endforeach

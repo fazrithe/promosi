@@ -39,13 +39,14 @@ class SlideController extends Controller
             'company_logo_file' => 'required',
         ]);
         $videoFiles = [];
-        if($request->hasfile('video_file'))
+
+        if($request->hasFile('video_file'))
          {
             foreach($request->file('video_file') as $file)
             {
                 $file_name_ori  = $file->getClientOriginalName();
                 $file_name = time().rand(1,100).'.'.$file->extension();
-                $file->move(public_path('files/videoPromo'), $file_name);
+                $file->move(public_path('files/video_promo'), $file_name);
                 $videoFiles[] = $file_name;
             }
          }
