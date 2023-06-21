@@ -88,4 +88,19 @@ class SlideController extends Controller
 
         return back()->with('success', 'Data Your files has been successfully added');
     }
+
+  /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+
+    public function destroy($id)
+    {
+        $post = Slides::findOrFail($id);
+
+        $post->delete();
+
+        return back()->with('success', 'Data Your files has been successfully deleted');
+    }
 }

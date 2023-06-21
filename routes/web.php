@@ -28,3 +28,4 @@ Auth::routes();
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/slide', [SlideController::class, 'index'])->name('slide');
 Route::post('/slide', [SlideController::class, 'store'])->name('store.slide');
+Route::get('/slide/{id}', [SlideController::class, 'destroy'])->name('delete.slide');

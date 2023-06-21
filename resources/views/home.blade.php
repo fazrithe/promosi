@@ -8,13 +8,28 @@
                 <div class="card-header">{{ __('Dashboard') }}</div>
 
                 <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    {{ __('You are logged in!') }}
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>File</th>
+                                <th>Logo Perusahaan</th>
+                                <th>Logo Promo</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($slide as $value)
+                            <tr>
+                                <td>{{ $value->file }}</td>
+                                <td>{{ $value->company_logo_file }}</td>
+                                <td>{{ $value->promo_logo_file }}</td>
+                                <td>
+                                    <a href="{{ route('delete.slide',$value->id) }}">Delete</a>
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
