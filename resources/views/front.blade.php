@@ -62,7 +62,7 @@ https://templatemo.com/tm-528-elegance
             @foreach($slide as $value)
                 @foreach(json_decode($value->file) as $video)
                 <div>
-                    <?php $path = Storage::url('files/video_promo/'.$video); ?>
+                    <?php $path = asset('/public/storage/files/video_promo/'.$video); ?>
                     <video autoplay muted loop id="myVideo">
                                 <source src="{{ url($path) }}" type="video/mp4">
                     </video>
