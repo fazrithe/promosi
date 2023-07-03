@@ -28,7 +28,19 @@
         <table class="table table-bordered" id="dynamicTable">
             <tr>
                 <th>Slide</th>
-                <th></th>
+                <th>
+                    <div class="row">
+                        <div class="col-2">
+                          <label>Timer</label>
+                        </div>
+                        <div class="col-4">
+                          <input type="number" name="timer" class="form-control" placeholder="Time">
+                        </div>
+                        <div class="col-2">
+                            <label>/Detik</label>
+                        </div>
+                      </div>
+                </th>
             </tr>
             <tr>
                 <td>

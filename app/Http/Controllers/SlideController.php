@@ -84,6 +84,7 @@ class SlideController extends Controller
          $file->company_logo_file   = json_encode($companyLogoFiles);
          $file->promo_logo_file     = json_encode($promoLogoFiles);
          $file->description         = $request->description;
+         $file->timer               = $request->timer;
          $file->save();
 
         return back()->with('success', 'Data Your files has been successfully added');

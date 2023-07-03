@@ -16,7 +16,7 @@ class FrontController extends Controller
     public function index()
     {
         $slide = Slides::orderby('created_at','desc')->get();
-
-        return view('front', compact('slide'));
+        $timer = Slides::orderby('created_at','desc')->first();
+        return view('front', compact('slide','timer'));
     }
 }

@@ -565,7 +565,7 @@ https://templatemo.com/tm-528-elegance
             .fadeIn(1000)
             .end()
             .appendTo('#slideshow');
-        }, 3000);
+        }, {{$timer->timer}}000);
     </script>
     <script>
         $("#slideshowCompany > div:gt(0)").hide();
@@ -577,7 +577,7 @@ https://templatemo.com/tm-528-elegance
             .fadeIn(1000)
             .end()
             .appendTo('#slideshowCompany');
-        }, 3000);
+        }, {{$timer->timer}}000);
     </script>
     <script>
        $("#slideshowPromo > div:gt(0)").hide();
@@ -589,7 +589,7 @@ https://templatemo.com/tm-528-elegance
             .fadeIn(1000)
             .end()
             .appendTo('#slideshowPromo');
-        }, 3000);
+        }, {{$timer->timer}}000);
     </script>
 
   </body>
