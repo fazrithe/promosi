@@ -5,7 +5,7 @@
 <div class="container">
     <div class="card">
         <div class="card-body" style="background-color: white">
-    <form action="{{ route('store.slide') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('update.slide') }}" method="POST" enctype="multipart/form-data">
         @csrf
 
         @if ($errors->any())
@@ -34,7 +34,8 @@
                           <label>Timer</label>
                         </div>
                         <div class="col-4">
-                          <input type="number" name="timer" class="form-control" placeholder="Time" required>
+                            <input type="hidden" name="id" value="{{$data->id}}">
+                          <input type="number" name="timer" value="{{$data->timer}}" class="form-control" placeholder="Time" required>
                         </div>
                         <div class="col-2">
                             <label>/Detik</label>

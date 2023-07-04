@@ -24,7 +24,8 @@
                                 <td>{{ $value->company_logo_file }}</td>
                                 <td>{{ $value->promo_logo_file }}</td>
                                 <td>
-                                    <a href="{{ route('delete.slide',$value->id) }}">Delete</a>
+                                    <a href="{{ route('delete.slide',$value->id) }}">Delete</a> |
+                                    <a href="{{ route('edit.slide',$value->id) }}">Edit</a>
                                 </td>
                             </tr>
                             @endforeach

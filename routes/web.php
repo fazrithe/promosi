@@ -29,3 +29,5 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/slide', [SlideController::class, 'index'])->name('slide');
 Route::post('/slide', [SlideController::class, 'store'])->name('store.slide');
 Route::get('/slide/{id}', [SlideController::class, 'destroy'])->name('delete.slide');
+Route::get('/edit/slide/{id}', [SlideController::class, 'edit'])->name('edit.slide');
+Route::post('/update/slide', [SlideController::class, 'update'])->name('update.slide');
