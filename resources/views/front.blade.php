@@ -52,18 +52,19 @@ https://templatemo.com/tm-528-elegance
 
     <div id="video">
         <div class="preloader">
-           <!<div class="preloader-bounce">
+           <div class="preloader-bounce">
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
         </div>
+        <div class="container-fluid">
         <div id="slideshow">
             @foreach($slide as $value)
                 @foreach(json_decode($value->file) as $video)
 
                 <div>
-                   <?php $path = asset('/public/storage/files/video_promo/'.$video);
+                   <?php $path = asset('/storage/files/video_promo/'.$video);
                             $type = pathinfo(storage_path().$path, PATHINFO_EXTENSION);
                     ?>
                     @if($type == "mp4")
@@ -71,11 +72,16 @@ https://templatemo.com/tm-528-elegance
                                 <source src="{{ url($path) }}" type="video/mp4">
                     </video>
                     @else
-                    <img src="{{ $path }}">
+                    <video poster="{{$path}}">
+                        <source src="movie.mp4" type="video/mp4">
+                        <source src="movie.ogg" type="video/ogg">
+                        Your browser does not support the video tag.
+                      </video>
                     @endif
                 </div>
                 @endforeach
             @endforeach
+        </div>
         </div>
 
 
@@ -128,13 +134,13 @@ https://templatemo.com/tm-528-elegance
                         <!--<span class="welcome-first animate" data-animate="fadeInUp">Hello....</span>
                         <h1 class="welcome-title animate" data-animate="fadeInUp">Libbey</h1>-->
 
-                        <div style="text-align:right"><font face="DINPro-Regular">
+                        <div style="text-align:right">
                             <div id="slideshowPromo">
                                 @foreach($slide as $value)
                                     @foreach(json_decode($value->promo_logo_file) as $promo)
                                     <div>
                                         <img src="{{ asset('public/files/promo_logo/'.$promo.'') }}" width="200px" alt="slimfit">
-                                        <h2>Produk Kami</h2></font>
+                                        <h2>Produk Kami</h2>
                                     </div>
                                     @endforeach
                                 @endforeach
