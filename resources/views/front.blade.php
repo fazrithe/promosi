@@ -61,11 +61,18 @@ https://templatemo.com/tm-528-elegance
         <div id="slideshow">
             @foreach($slide as $value)
                 @foreach(json_decode($value->file) as $video)
+
                 <div>
-                    <?php $path = asset('/public/storage/files/video_promo/'.$video); ?>
+                   <?php $path = asset('/public/storage/files/video_promo/'.$video);
+                            $type = pathinfo(storage_path().$path, PATHINFO_EXTENSION);
+                    ?>
+                    @if($type == "mp4")
                     <video autoplay muted loop id="myVideo">
                                 <source src="{{ url($path) }}" type="video/mp4">
                     </video>
+                    @else
+                    <img src="{{ $path }}">
+                    @endif
                 </div>
                 @endforeach
             @endforeach

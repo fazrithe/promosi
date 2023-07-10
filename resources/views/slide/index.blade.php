@@ -47,7 +47,7 @@
                     <div class="control-group after-add-more" style="background-color: white">
                         <div class="form-group mt-2">
                             <label>File</label>
-                            <input type="file" name="video_file[]" class="form-control" accept="video/mp4,video/x-m4v,video/*">
+                            <input type="file" name="video_file[]" class="form-control" accept="video/mp4,image/png, image/gif, image/jpeg">
                         </div>
                         <div class="form-group mt-2">
                             <label>Logo Perusahaan</label>
