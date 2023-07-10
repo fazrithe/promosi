@@ -92,13 +92,13 @@ https://templatemo.com/tm-528-elegance
                     <div id="slideshowCompany">
                         @foreach($slide as $value)
                             @foreach(json_decode($value->company_logo_file) as $logo)
-                            @if($logo)
+                            {{-- @if($logo) --}}
                             <div>
                                 <a href="#" id="logo" title="Elegance by TemplateMo">
                                     <img src="{{ asset('public/files/company_logo/'.$logo.'') }}" width="200px" alt="slimfit">
                                 </a>
                             </div>
-                            @endif
+                            {{-- @endif --}}
                             @endforeach
                         @endforeach
                     </div>
@@ -140,12 +140,12 @@ https://templatemo.com/tm-528-elegance
                             <div id="slideshowPromo">
                                 @foreach($slide as $value)
                                     @foreach(json_decode($value->promo_logo_file) as $promo)
-                                    @if($promo)
+                                    {{-- @if($promo) --}}
                                     <div>
                                         <img src="{{ asset('public/files/promo_logo/'.$promo.'') }}" width="200px" alt="slimfit">
                                         <h2>Produk Kami</h2>
                                     </div>
-                                    @endif
+                                    {{-- @endif --}}
                                     @endforeach
                                 @endforeach
                             </div>
