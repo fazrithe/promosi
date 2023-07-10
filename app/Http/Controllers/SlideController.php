@@ -156,7 +156,9 @@ class SlideController extends Controller
                 $companyFile->move(public_path('files/company_logo'), $file_name_company);
                 $companyLogoFiles[] = $file_name_company;
             }
-         }
+        }else{
+            $companyLogoFiles[] = 0;
+        }
 
          $promoLogoFiles = [];
          if($request->hasFile('company_promo_file'))
