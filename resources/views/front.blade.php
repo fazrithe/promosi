@@ -51,13 +51,13 @@ https://templatemo.com/tm-528-elegance
     <body>
 
     <div id="video">
-        <div class="preloader">
+        {{-- <div class="preloader">
            <div class="preloader-bounce">
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
-        </div>
+        </div> --}}
         <div class="container-fluid">
         <div id="slideshow">
             @foreach($slide as $value)
