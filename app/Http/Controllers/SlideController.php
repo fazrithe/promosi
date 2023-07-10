@@ -37,7 +37,7 @@ class SlideController extends Controller
     {
         $this->validate($request, [
             'video_file'              => 'required',
-            'company_logo_file' => 'required',
+            // 'company_logo_file' => 'required',
         ]);
         $videoFiles = [];
 
@@ -126,7 +126,7 @@ class SlideController extends Controller
     {
         $this->validate($request, [
             'video_file'              => 'required',
-            'company_logo_file' => 'required',
+            // 'company_logo_file' => 'required',
         ]);
         $videoFiles = [];
 
