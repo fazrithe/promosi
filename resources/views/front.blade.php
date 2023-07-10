@@ -64,7 +64,7 @@ https://templatemo.com/tm-528-elegance
                 @foreach(json_decode($value->file) as $video)
 
                 <div>
-                   <?php $path = asset('/storage/files/video_promo/'.$video);
+                   <?php $path = asset('public/storage/files/video_promo/'.$video);
                             $type = pathinfo(storage_path().$path, PATHINFO_EXTENSION);
                     ?>
                     @if($type == "mp4")
