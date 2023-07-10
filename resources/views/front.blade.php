@@ -92,13 +92,13 @@ https://templatemo.com/tm-528-elegance
                     <div id="slideshowCompany">
                         @foreach($slide as $value)
                             @foreach(json_decode($value->company_logo_file) as $logo)
-                            {{-- @if($logo) --}}
+                            @if($logo)
                             <div>
-                                <a href="#" id="logo" title="Elegance by TemplateMo">
-                                    <img src="{{ asset('public/files/company_logo/'.$logo.'') }}" width="200px" alt="slimfit">
-                                </a>
+                                <img src="{{ asset('public/files/company_logo/'.$logo.'') }}" width="200px" alt="slimfit">
                             </div>
-                            {{-- @endif --}}
+                            @else
+                            <div></div>
+                            @endif
                             @endforeach
                         @endforeach
                     </div>
@@ -573,28 +573,33 @@ https://templatemo.com/tm-528-elegance
 
     <script src="{{ asset("themes/js/custom.js") }}"></script>
     <script>
-        $("#slideshow > div:gt(0)").hide();
+        slideShow();
+        function slideShow(){
+            $("#slideshow > div:gt(0)").hide();
 
-        setInterval(function() {
-        $('#slideshow > div:first')
-            .fadeOut(1000)
-            .next()
-            .fadeIn(1000)
-            .end()
-            .appendTo('#slideshow');
-        }, {{$timer->timer}}000);
-    </script>
-    <script>
-        $("#slideshowCompany > div:gt(0)").hide();
+            setInterval(function() {
+            $('#slideshow > div:first')
+                .fadeOut(1000)
+                .next()
+                .fadeIn(1000)
+                .end()
+                .appendTo('#slideshow');
+            }, {{$timer->timer}}000);
+        }
 
-        setInterval(function() {
-        $('#slideshowCompany > div:first')
-            .fadeOut(1000)
-            .next()
-            .fadeIn(1000)
-            .end()
-            .appendTo('#slideshowCompany');
-        }, {{$timer->timer}}000);
+        slideshowCompany();
+        function slideshowCompany(){
+            $("#slideshowCompany > div:gt(0)").hide();
+
+            setInterval(function() {
+            $('#slideshowCompany > div:first')
+                .fadeOut(1000)
+                .next()
+                .fadeIn(1000)
+                .end()
+                .appendTo('#slideshowCompany');
+            }, {{$timer->timer}}000);
+        }
     </script>
     <script>
        $("#slideshowPromo > div:gt(0)").hide();
