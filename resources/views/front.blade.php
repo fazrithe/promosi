@@ -140,12 +140,14 @@ https://templatemo.com/tm-528-elegance
                             <div id="slideshowPromo">
                                 @foreach($slide as $value)
                                     @foreach(json_decode($value->promo_logo_file) as $promo)
-                                    {{-- @if($promo) --}}
+                                    @if($promo)
                                     <div>
                                         <img src="{{ asset('public/files/promo_logo/'.$promo.'') }}" width="200px" alt="slimfit">
                                         <h2>Produk Kami</h2>
                                     </div>
-                                    {{-- @endif --}}
+                                    @else
+                                    <div></div>
+                                    @endif
                                     @endforeach
                                 @endforeach
                             </div>

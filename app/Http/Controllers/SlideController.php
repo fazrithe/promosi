@@ -79,6 +79,8 @@ class SlideController extends Controller
                 $promoFile->move(public_path('files/promo_logo'), $file_name_promo);
                 $promoLogoFiles[] = $file_name_promo;
             }
+        }else{
+            $promoLogoFiles[] = 0;
          }
 
          $file                      = new Slides();
@@ -170,6 +172,8 @@ class SlideController extends Controller
                 $promoFile->move(public_path('files/promo_logo'), $file_name_promo);
                 $promoLogoFiles[] = $file_name_promo;
             }
+         }else{
+            $promoLogoFiles[] = 0;
          }
 
          $file                      = Slides::where('id', $request->id)->first();
